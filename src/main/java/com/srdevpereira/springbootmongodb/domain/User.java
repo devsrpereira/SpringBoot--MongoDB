@@ -1,18 +1,23 @@
 package com.srdevpereira.springbootmongodb.domain;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Document
 public class User implements Serializable {
+    @Id
     private String id;
     private String name;
-    private String Email;
+    private String email;
 
     public User(){}
     public User(String id, String name, String email) {
         this.id = id;
         this.name = name;
-        Email = email;
+        this.email = email;
     }
 
     public String getId() {
@@ -28,10 +33,10 @@ public class User implements Serializable {
         this.name = name;
     }
     public String getEmail() {
-        return Email;
+        return email;
     }
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     @Override
