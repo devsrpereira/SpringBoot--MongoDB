@@ -1,6 +1,7 @@
 package com.srdevpereira.springbootmongodb.services;
 
 import com.srdevpereira.springbootmongodb.domain.User;
+import com.srdevpereira.springbootmongodb.dto.UserDTO;
 import com.srdevpereira.springbootmongodb.repository.UserRepository;
 import com.srdevpereira.springbootmongodb.services.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +25,11 @@ public class UserService {
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrato"));
     }
 
+    public User insert(User obj){
+        return repo.insert(obj);
+    }
+
+    public User fromDTO(UserDTO objDTO){
+        return new User(objDTO.getId(), objDTO.getName(), objDTO.getEmail());
+    }
 }
