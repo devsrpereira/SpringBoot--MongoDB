@@ -1,5 +1,6 @@
 package com.srdevpereira.springbootmongodb.resources;
 
+import com.srdevpereira.springbootmongodb.domain.Post;
 import com.srdevpereira.springbootmongodb.domain.User;
 import com.srdevpereira.springbootmongodb.dto.UserDTO;
 import com.srdevpereira.springbootmongodb.services.UserService;
@@ -34,6 +35,12 @@ public class UserResources {
     public ResponseEntity<UserDTO> findById(@PathVariable String id){
         User obj = service.findById(id);
         return ResponseEntity.ok().body(new UserDTO(obj));
+    }
+
+    @GetMapping(value = "/{id}/posts")
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id){
+        User obj = service.findById(id);
+        return ResponseEntity.ok().body(obj.getPosts());
     }
 
     @PostMapping
