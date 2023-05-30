@@ -4,6 +4,7 @@ import com.srdevpereira.springbootmongodb.domain.User;
 import com.srdevpereira.springbootmongodb.dto.UserDTO;
 import com.srdevpereira.springbootmongodb.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.repository.Update;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -50,4 +51,13 @@ public class UserResources {
         return ResponseEntity.noContent().build();
     }
 
-}
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Void> update(@RequestBody UserDTO objDTO, @PathVariable String id){
+        User obj = service.fromDTO(objDTO);
+        obj.setId(id);
+        obj = service.update(obj);
+        return ResponseEntity.noContent().build(); 
+    }
+
+
+    }
