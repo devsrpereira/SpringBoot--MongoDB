@@ -56,7 +56,7 @@ public class UserResources {
         User obj = service.fromDTO(objDTO);
         obj.setId(id);
         obj = service.update(obj);
-        return ResponseEntity.noContent().build(); 
+        return ResponseEntity.noContent().build();
     }
 
 
