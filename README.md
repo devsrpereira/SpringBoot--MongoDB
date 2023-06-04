@@ -1,4 +1,4 @@
-# WeB Service PDV
+# UserController (MongoDB + SpringBoot)
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/devsrpereira/SpringBoot--MongoDB/edit/main/LICENSE) 
 
 # Sobre o projeto
